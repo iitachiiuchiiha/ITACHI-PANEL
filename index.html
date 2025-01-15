@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Control Panel</title>
+    <title>Gaming Control Panel</title>
     <style>
       /* General Styles */
       body {
@@ -106,9 +106,12 @@
     </div>
 
     <script>
+      // Replace with your ngrok URL
+      const serverUrl = "https://abcd1234.ngrok.io";
+
       // Function to start the stream
       function startStream() {
-        fetch('http://localhost:5000/stream/on')
+        fetch(`${serverUrl}/stream/on`)
           .then(response => response.text())
           .then(data => {
             document.getElementById('streamStatus').textContent = `Stream Status: ${data}`;
@@ -121,7 +124,7 @@
 
       // Function to stop the stream
       function stopStream() {
-        fetch('http://localhost:5000/stream/off')
+        fetch(`${serverUrl}/stream/off`)
           .then(response => response.text())
           .then(data => {
             document.getElementById('streamStatus').textContent = `Stream Status: ${data}`;
@@ -134,7 +137,7 @@
 
       // Function to inject aimbot
       function injectAimbot() {
-        fetch('http://localhost:5000/aimbot/inject')
+        fetch(`${serverUrl}/aimbot/inject`)
           .then(response => response.text())
           .then(data => {
             document.getElementById('aimbotStatus').textContent = `Aimbot Status: ${data}`;
@@ -147,7 +150,7 @@
 
       // Function to enable aimbot
       function enableAimbot() {
-        fetch('http://localhost:5000/aimbot/on')
+        fetch(`${serverUrl}/aimbot/on`)
           .then(response => response.text())
           .then(data => {
             document.getElementById('aimbotStatus').textContent = `Aimbot Status: ${data}`;
@@ -160,7 +163,7 @@
 
       // Function to disable aimbot
       function disableAimbot() {
-        fetch('http://localhost:5000/aimbot/off')
+        fetch(`${serverUrl}/aimbot/off`)
           .then(response => response.text())
           .then(data => {
             document.getElementById('aimbotStatus').textContent = `Aimbot Status: ${data}`;
